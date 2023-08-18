@@ -1,0 +1,5 @@
+com\example\controller\JsonController.class
+com\example\activity\MainActivity.class
+com\example\config\Application.class
+com\example\controller\SimpleController.class
+com\example\persistence\model\Charger.class
