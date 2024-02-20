@@ -12,18 +12,16 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import com.example.activity.MainActivity;
-
 @EnableJpaRepositories("com.example.persistence.repo")
 @EnableScheduling
 @EnableAsync
 @EntityScan("com.example.persistence.model")
-@SpringBootApplication(scanBasePackages = {"com.example.controller","com.example.activity"})
+//@ComponentScan({"com.example.Dao","com.example.bean","com.example.activity","com.example.controller"})
+@SpringBootApplication(scanBasePackages = {"com.example.bean","com.example.Dao","com.example.controller","com.example.activity"})
 
 public class Application {
-
     public static void main(String[] args) {
-        new MainActivity().run();
+        //new MainActivity().run();
         SpringApplication application = new SpringApplication(Application.class);
         application.addListeners(new ApplicationPidFileWriter("app.pid"));
         application.run(args);
