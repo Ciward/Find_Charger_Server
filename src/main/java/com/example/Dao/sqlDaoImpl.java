@@ -95,11 +95,10 @@ public class sqlDaoImpl implements sqlDao{
     }
 
     @Override
-    public boolean updateTime(LocalDateTime time,int id) {
+    public boolean updateTime(int id) {
         
-        String timeText = time.format(df);
-        String sql = "update timeData set time=? where id=?";
-        Object[] params = {timeText,id};
+        String sql = "update timeData set time=Now() where id=?";
+        Object[] params = {id};
         return jdbcTemplate.update(sql,params)>0;
     }
 

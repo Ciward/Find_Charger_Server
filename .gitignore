@@ -1,2 +1,5 @@
-.vscode/*
-.history/*
+.vscode
+.history
+target
+apk
+app.pid

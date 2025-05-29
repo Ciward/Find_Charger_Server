@@ -19,7 +19,6 @@ import net.dongliu.apk.parser.ApkFile;
 
 @Controller
 public class DownloadController {
-    private int N=0;
     Logger logger = LoggerFactory.getLogger(getClass());
     String path = "apk/update/app-release.apk";
     String pathForce = "apk/force";

@@ -38,7 +38,7 @@ public class MainActivity {
     private double Longitude=120.688838,Latitude=36.366236;
     private boolean needSid=true;
     private String sid;
-    private String getSidUrl="https://xlr.xlvren.com/jweb_autocharge/wxcommon/userBindOpenid.json?mobile=15206530585&passwd=8c34ba216b43947be78c4c243d3a79ad&openid=oef-duET16JoyBGCNzKrznrtymhQ&unionid=ool2bt3Ql1_TNfyJ3aM5gIpGZKEk";
+    private String getSidUrl="https://xlr.xlvren.com/jweb_autocharge/wxcommon/userBindOpenid.json?mobile=15206530585&passwd=8c34ba216b43947be78c4c243d3a79ad&openid=oef-duET16JoyBGCNzKrznrtymhQ&unionid=ool2bt3Ql1_TNfyJ3aM5gIpGZKEk&code=0";
     public List<Charger> chargers=new ArrayList<>();
     private List<INdata> data=new ArrayList<>();
     private List<String> sids=new ArrayList<>();
@@ -79,8 +79,7 @@ public class MainActivity {
             }
         }
         //writeDataBase_old();
-        LocalDateTime localDateTime = LocalDateTime.now();
-        sqlDaoImpl.updateTime(localDateTime, 1);
+        sqlDaoImpl.updateTime(1);
         logger.info(N+" ");
         N++;
     }
@@ -120,8 +119,8 @@ public class MainActivity {
                     if(id.length()==11)
                         pareNorthJSON(response.toString(),id);
                     else if(id.length()==6)
-                        pareSouthJSON(response.toString(),id);
-                
+                        //pareSouthJSON(response.toString(),id);
+                        logger.info(response.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
@@ -235,8 +234,7 @@ public class MainActivity {
     }
 
     private void writeDataBase_old(){
-        LocalDateTime localDateTime = LocalDateTime.now();
-        sqlDaoImpl.updateTime(localDateTime, 1);
+        sqlDaoImpl.updateTime(1);
         int i=1;
         for (Charger Cls : chargers) {
             if(sqlDaoImpl.existsById(Cls.getId())){

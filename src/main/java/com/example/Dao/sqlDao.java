@@ -10,7 +10,7 @@ public interface sqlDao {
     List<INdata> findallInData();
     List<String> findallSid(); 
     List<Charger> findallChargers();
-    boolean updateTime(LocalDateTime time,int id);
+    boolean updateTime(int id);
     LocalDateTime findTime(int id);
     Charger findByname(String name);
     boolean existsById(String id);
